@@ -14,11 +14,18 @@ class BinarySearchTree{
 
    Node root;
    
+   public Node insert(int value)
+   {
+      if(root == null){
+         root = new Node(value);
+         return root;
+      }
+   }
    
    /*
    recursive insert method
    */
-   public Node insert(int value){
+   public Node insert(Node root, int value){
       //base case
       if(root == null){
          root = new Node(value);
