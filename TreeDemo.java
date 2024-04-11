@@ -16,10 +16,20 @@ class BinarySearchTree{
    
    public Node insert(int value)
    {
+      //base case
       if(root == null){
          root = new Node(value);
          return root;
       }
+      
+      //recursive step
+      if(value < root.value){
+         root.left = insert(root.left, value); 
+      }else{
+         root.right = insert(root.right, value);
+      }
+      
+      return root;
    }
    
    /*
@@ -119,6 +129,7 @@ class BinarySearchTree{
    */
    public int getMin(Node root){
       //implement me
+      return 0;
    }
   
   
@@ -129,6 +140,7 @@ class BinarySearchTree{
    */
    public int getMax(Node root){
 	  //implement me
+     return 0;
    }
    
    
@@ -179,16 +191,10 @@ public class TreeDemo{
       t1.insert(18);
       t1.insert(9);
       t1.insert(90);
-      t1.insert(22);
-            
-      
-      //Call Pre-Order Traversal method
-      t1.preOrderTraversal(t1.root);  
+      t1.insert(22);  
             
       System.out.print("in-order :   ");
       t1.inOrderTraversal(t1.root);
       System.out.println();
-           
-      
    }  
 }
