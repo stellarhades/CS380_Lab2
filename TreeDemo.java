@@ -18,7 +18,7 @@ class BinarySearchTree{
    /*
    recursive insert method
    */
-   public Node insert(Node root, int value){
+   public Node insert(int value){
       //base case
       if(root == null){
          root = new Node(value);
