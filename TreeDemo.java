@@ -1,9 +1,16 @@
 import java.util.Scanner;
-
+/**
+* A class to be used in BinarySearchTree, representing each node within a binary tree
+* @author Jace Marden
+*/
 class Node{
    int value;
    Node left, right;
    
+   /**
+   * Construct a new node given an integer value
+   * @param value The value given to the node
+   */
    public Node(int value){
       this.value = value;
       left = null;
@@ -12,10 +19,19 @@ class Node{
 
 }
 
+/**
+* A class to represnt a binary search tree (BST), with adequate functionality to traverse and manipulate
+* @author Jace Marden
+*/
 class BinarySearchTree{
 
    Node root;
    
+   /**
+   * A method to insert a value and recursively repair the tree once inserted
+   * @param value The value to be inserted into the binary search tree
+   * @return The root node of the BST
+   */
    public Node insert(int value)
    {
       //base case
@@ -35,7 +51,10 @@ class BinarySearchTree{
    }
    
    /*
-   recursive insert method
+   * A method to insert a value and recursively repair the tree once inserted, but given a root
+   * @param root The root of the binary search tree, or the current sub-tree
+   * @param value The value to be inserted into the BST
+   * @return root The root node of the BST
    */
    public Node insert(Node root, int value){
       //base case
@@ -56,8 +75,9 @@ class BinarySearchTree{
    
    
    
-   /*
-   pre-order traversal
+   /**
+   * A method to traverse the binary search tree using preOrder traversal
+   * @param root The root of the BST or current sub-tree
    */
    public void preOrderTraversal(Node root){
       if(root != null)
@@ -70,8 +90,9 @@ class BinarySearchTree{
 
    
    
-   /*
-   in-order traversal
+   /**
+   * A method to traverse the binary search tree using inOrder traversal
+   * @param root The root of the BST or current sub-tree
    */
    public void inOrderTraversal(Node root){
       if(root != null)
@@ -84,8 +105,9 @@ class BinarySearchTree{
    
    
    
-   /*
-   post-order traversal
+   /**
+   * A method to traverse the binary search tree using postOrder traversal
+   * @param root The root of the BST or current sub-tree
    */
    public void postOrderTraversal(Node root){
       if(root != null)
@@ -98,19 +120,25 @@ class BinarySearchTree{
    
    
    
-   /*
-   a method to find the node in the tree
-   with a specific value
+   /**
+   * A method to find a specific key value within the binary search tree
+   * @param root The root of the BST or current sub-tree
+   * @param key The value to find within the BST
+   * @return found True or False if the key was found
    */
    public boolean find(Node root, int key){
+     boolean found = false;
+   
 	  if(root == null)
      {
-         return false;
+         found = false;
+         return found;
      }
      
      if(root.value == key)
      {
-         return true;
+         found = true;
+         return found;
      }
      
      else if (key < root.value)
@@ -126,9 +154,10 @@ class BinarySearchTree{
    
    
    
-   /*
-   a method to find the node in the tree
-   with a smallest key
+   /**
+   * A method to find the minimum key within the binary search tree
+   * @param root The root of the BST or current sub-tree
+   * @return current.value An int that is the value of the smallest root in the BST
    */
    public int getMin(Node root){
       Node current = root;
@@ -140,9 +169,10 @@ class BinarySearchTree{
   
   
   
-   /*
-   a method to find the node in the tree
-   with a largest key
+   /**
+   * A method to find the maximum key within the binary search tree
+   * @param root The root of the BST or current sub-tree
+   * @return current.value An int that is the value of the largest root in the BST
    */
    public int getMax(Node root){
 	  Node current = root;
@@ -154,9 +184,11 @@ class BinarySearchTree{
    
    
    
-   /*
-   this method will not compile until getMax
-   is implemented
+   /**
+   * A method to remove a node within the binary search tree based on a given key if the node exists
+   * @param root The root of the BST or current sub-tree
+   * @param key An integer denoting which node to search for and delete from the BST
+   * @return The root of the BST
    */
    public Node delete(Node root, int key){
       
@@ -191,7 +223,10 @@ class BinarySearchTree{
 }
 
 
-
+/**
+* A class to demonstrate the functionality of the BinarySearchTree calss
+* @author Jace Marden
+*/
 public class TreeDemo{
    public static void main(String[] args){
       BinarySearchTree t1  = new BinarySearchTree();
