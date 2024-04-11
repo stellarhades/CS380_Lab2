@@ -41,7 +41,12 @@ class BinarySearchTree{
    pre-order traversal
    */
    public void preOrderTraversal(Node root){
-      //implement me
+      if(root != null)
+      {
+         System.out.print(root.value + " ");
+         preOrderTraversal(root.left);
+         preOrderTraversal(root.right);
+      }
    }
 
    
@@ -142,6 +147,10 @@ public class TreeDemo{
       t1.insert(9);
       t1.insert(90);
       t1.insert(22);
+            
+      
+      //Call Pre-Order Traversal method
+      t1.preOrderTraversal(t1.root);  
             
       System.out.print("in-order :   ");
       t1.inOrderTraversal(t1.root);
