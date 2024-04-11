@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Node{
    int value;
    Node left, right;
@@ -101,15 +103,16 @@ class BinarySearchTree{
    with a specific value
    */
    public boolean find(Node root, int key){
-	  if(root.value == key)
+	  if(root == null)
+     {
+         return false;
+     }
+     
+     if(root.value == key)
      {
          return true;
      }
      
-     if(root == null)
-     {
-         return false;
-     }
      else if (key < root.value)
      {
          return find(root.left, key);
@@ -192,9 +195,37 @@ public class TreeDemo{
       t1.insert(9);
       t1.insert(90);
       t1.insert(22);  
-            
-      System.out.print("in-order :   ");
+         
+      //Demonstrate pre order method   
+      System.out.print("\npre-order :   ");
+      t1.preOrderTraversal(t1.root);
+      System.out.println();
+      
+      //Demonstrate in order method
+      System.out.print("\nin-order :   ");
       t1.inOrderTraversal(t1.root);
       System.out.println();
+      
+      //Demonstrate post order method
+      System.out.print("\npost-order :   ");
+      t1.postOrderTraversal(t1.root);
+      System.out.println();
+      
+      //Demonstrate find method
+      Scanner temp = new Scanner(System.in);
+      System.out.print("\nEnter number to find : ");
+      int toFind = temp.nextInt();
+      System.out.println(toFind + " is within the tree : " + t1.find(t1.root, toFind));
+      
+      //Demonstrate delete method
+      Scanner temp2 = new Scanner(System.in);
+      System.out.print("\nEnter number to delete : ");
+      int toDelete = temp2.nextInt();
+      System.out.println(toDelete + " is within the tree : " + t1.find(t1.root, toDelete));
+      System.out.println("Attempting to delete " + toDelete);
+      t1.delete(t1.root, toDelete);
+      System.out.println(toDelete + " is within the tree : " + t1.find(t1.root, toDelete));
+      
+      
    }  
 }
