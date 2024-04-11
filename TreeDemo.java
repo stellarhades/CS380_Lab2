@@ -131,8 +131,11 @@ class BinarySearchTree{
    with a smallest key
    */
    public int getMin(Node root){
-      //implement me
-      return 0;
+      Node current = root;
+      while(current.left != null)
+         current = current.left;
+      
+      return current.value;
    }
   
   
@@ -142,8 +145,11 @@ class BinarySearchTree{
    with a largest key
    */
    public int getMax(Node root){
-	  //implement me
-     return 0;
+	  Node current = root;
+      while(current.right != null)
+         current = current.right;
+      
+      return current.value;
    }
    
    
@@ -226,6 +232,15 @@ public class TreeDemo{
       t1.delete(t1.root, toDelete);
       System.out.println(toDelete + " is within the tree : " + t1.find(t1.root, toDelete));
       
-      
+      //Demonstrate getMin and getMax
+      try
+      { 
+         System.out.print("\nMinimum value within the tree : " + t1.getMin(t1.root));
+         System.out.print("\nMaximum value within the tree : " + t1.getMax(t1.root));
+      } 
+      catch (NullPointerException e)
+      {
+         System.out.println("Tree is empty");
+      }
    }  
 }
